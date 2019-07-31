@@ -43,9 +43,9 @@ def send_mail(msg, user_mail, user_pass, to_list,mail_server,mail_server_port):
     try:
         mailServer.login(user_mail,user_pass)
         mailServer.sendmail(user_mail, to_list, msg.as_string())
-        mailServer.sendmail(user_mail,'jayesh_mahajan@apple.com','Imbedded Image Job successfull')
+        mailServer.sendmail(user_mail,to_list,'Imbedded Image Job successfull')
     except:
-        mailServer.sendmail(user_mail,'jayesh_mahajan@apple.com','Imbedded Image Job Failed')
+        mailServer.sendmail(user_mail,to_list,'Imbedded Image Job Failed')
     finally:
         mailServer.quit()
 
@@ -62,6 +62,9 @@ image_cid = 1
 # define image_files
 imagename = []
 
+# define to_list - recievers mail address
+to_list = []
+
 #create the message content object which has html data
 email_content = 'Content of the html object <br/> <img src="cid:1"><br/>'
 msg_html_content = MIMEText(email_content, 'html', 'utf-8')
@@ -74,9 +77,9 @@ msg['Subject'] = Header("Mail Subject", 'utf-8').encode()
 
 # attach objects to the email.
 msg.attach(msg_content)
-msg.attach(attach_image("/Users/jayeshmahajan/Jayesh_Test/Python_scripts/test.gif",image_cid))
+msg.attach(attach_image("image_address",image_cid))
 msg.attach(msg_html_content)
-msg.attach(attach_file("/Users/jayeshmahajan/Jayesh_Test/Python_scripts/test.gif"))
+msg.attach(attach_file("image_address"))
 # send the mail 
 send_mail(msg, apple_mail,apple_pass, apple_mail,"smtp.gmail.com",587)
 
