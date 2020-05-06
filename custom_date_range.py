@@ -4,13 +4,13 @@ import datetime
 import dateutil
 from dateutil.relativedelta import relativedelta
 
-def create_date_range(StartDate,EndDate = (datetime.datetime.now().date()-datetime.timedelta(days=2)),day = 0) :
+def create_date_range(StartDate,EndDate = (datetime.datetime.now().date()-datetime.timedelta(days=2)),day = -1) :
     date_range = []
     date = datetime.datetime.strptime(StartDate, "%Y-%m-%d").date()
     if type(EndDate) == str:
         EndDate = datetime.datetime.strptime(EndDate, "%Y-%m-%d").date()
     while date < EndDate:
-        if day == 0:
+        if day == -1:
             d1,d2 = date, date + relativedelta(day=31)
         else:
             d1,d2 = date, date + datetime.timedelta(days=day)
