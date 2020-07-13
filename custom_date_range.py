@@ -19,7 +19,7 @@ def create_date_range(StartDate,EndDate = (datetime.datetime.now().date()-dateti
             d2 = EndDate
         date_range.append((str(d1),str(d2)))
     if EndDate != datetime.datetime.strptime(date_range[-1][1], "%Y-%m-%d").date():
-        date_range.append((str(d1+datetime.timedelta(days=1)),EndDate))
+        date_range.append((str(d1+datetime.timedelta(days=1)),str(EndDate)))
     return date_range
 
 date_range = create_date_range('2019-02-03','2020-03-15',day=15)
