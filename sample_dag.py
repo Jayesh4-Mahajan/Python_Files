@@ -45,4 +45,4 @@ transform_and_load = BashOperator(
 
 # task pipeline
 
-extract >> transfrom_and_load
+extract >> transform_and_load
