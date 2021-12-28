@@ -21,7 +21,7 @@ default_args = {
 # defining the DAG
 
 dag = DAG(
-    'dag-sample'.
+    'dag-sample',
     default_args=default_args,
     description='DAG Bash Example',
     schedule_interval=timedelta(days=1),
