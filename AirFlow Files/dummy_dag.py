@@ -3,7 +3,7 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
 
-default_ags={
+default_args={
     'owner': 'Jayesh Mahajan',
     'start_date': days_ago(0),
     'email': ['jayeshmahajan@somewhere.py'],
@@ -15,7 +15,7 @@ default_ags={
 
 dag = DAG(
     'dummy_dag',
-    default_ags=default_ags,
+    default_args=default_args,
     description='My Dummy Dag',
     schedule_interval=timedelta(minutes=1),
 )
