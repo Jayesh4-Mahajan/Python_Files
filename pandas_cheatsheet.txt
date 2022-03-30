@@ -1,3 +1,19 @@
+## Max Lenght of string in pandas column
+
+%timeit -n 100 df.col1.str.len().max()
+100 loops, best of 3: 11.7 ms per loop
+
+%timeit -n 100 df.col1.map(lambda x: len(x)).max()
+100 loops, best of 3: 16.4 ms per loop
+
+%timeit -n 100 df.col1.map(len).max()
+100 loops, best of 3: 10.1 ms per loop
+
+## Convert arrary as string to array
+
+from ast import literal_eval
+df2['Image_Url'] = df2['Image_Url'].apply(literal_eval)
+
 ## Drop Columns in pandas DataFrame 
 
 The best way to do this in Pandas is to use drop:
